@@ -1,0 +1,50 @@
+main:
+  prediction_output_dir: ~/dev/garmentnets/outputs/2021-07-31/01-43-33
+  # negative for using all cores avaliable
+  num_workers: -1
+override_all:
+  # full path from root, or a float number
+  value_threshold: summary/metrics/aggregate/optimal_wnf_gradient_threshold
+  # can be volume_gradient_magnitude or is_on_surface_logits or volume_value
+  value_key: marching_cubes_mesh/volume_gradient_magnitude
+  predict_holes: True
+  volume_task_space: False
+eval:
+  compute_optimal_gradient_treshold:
+    enabled: True
+    precision_weight: 0.75
+  compute_pc_metrics:
+    enabled: True
+  compute_grip_point_metrics:
+    enabled: False
+  compute_chamfer:
+    enabled: True
+    num_points: 10000
+    seed: 0
+  compute_hybrid_chamfer:
+    enabled: True
+    num_points: 10000
+    seed: 0
+  compute_geodesic:
+    enabled: False
+    num_points: 100
+    seed: 0
+  compute_hausdorff:
+    enabled: False
+vis:
+  samples_per_instance: 0
+  rank_metric: 'hybrid_chamfer_symmetrical_regular_pred'
+  num_normal: 10
+  num_best: 2
+  num_worst: 2
+  task_mesh_vis:
+    offset: [0.6,0,0]
+  nocs_mesh_vis:
+    offset: [0.3,0,0]
+    value_delta: 0.1
+  nocs_pc_vis:
+    offset: [0.5,0,0]
+logger:
+  mode: online
+  name: null
+  tags: []
