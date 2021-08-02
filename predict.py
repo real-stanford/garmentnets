@@ -1,13 +1,6 @@
 # %%
-# Change CWD
-import os
-import sys
-project_dir = os.path.expanduser("~/dev/garmentnets")
-os.chdir(project_dir)
-sys.path.append(project_dir)
-
-# %%
 # import
+import os
 import pathlib
 
 import yaml
@@ -51,8 +44,8 @@ def get_checkpoint_df(checkpoint_dir):
 
 # %%
 # main script
-@hydra.main(config_path="../config", 
-    config_name="predict_conv_implicit_iccv_pipeline_default")
+@hydra.main(config_path="config", 
+    config_name="predict_default")
 def main(cfg: DictConfig) -> None:
     # hydra creates working directory automatically
     pred_output_dir = os.getcwd()

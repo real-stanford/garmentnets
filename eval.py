@@ -1,12 +1,4 @@
 # %%
-# Change CWD
-import os
-import sys
-project_dir = os.path.expanduser("~/dev/garmentnets")
-os.chdir(project_dir)
-sys.path.append(project_dir)
-
-# %%
 # set numpy threads
 import os
 os.environ["OMP_NUM_THREADS"] = "1"
@@ -37,8 +29,6 @@ import pandas as pd
 import numpy as np
 import scipy.ndimage as ni
 from skimage.measure import marching_cubes
-import trimesh
-import trimesh.proximity
 from scipy.spatial import ckdtree
 import igl
 
@@ -877,11 +867,11 @@ def get_nocs_pc_vis(
 
 # %%
 # main script
-@hydra.main(config_path="../config", 
-    config_name="eval_conv_implicit_iccv_pipeline_default.yaml")
+@hydra.main(config_path="config", 
+    config_name="eval_default.yaml")
 def main(cfg: DictConfig) -> None:
     # load datase
-    pred_output_dir = cfg.main.prediction_output_dir
+    pred_output_dir = os.path.expanduser(cfg.main.prediction_output_dir)
     pred_config_path = os.path.join(pred_output_dir, 'config.yaml')
     pred_config_all = OmegaConf.load(pred_config_path)
 

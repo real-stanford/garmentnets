@@ -1,21 +1,6 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-import kornia
-
-
-class SpatialGradientMSELoss(nn.Module):
-    def __init__(self, mode='diff', order=1):
-        super().__init__()
-        self.spatial_gradient = kornia.filters.SpatialGradient3d(mode=mode, order=order)
-        self.mse = nn.MSELoss(reduction='mean')
-    
-    def forward(self, prediction, target):
-        pred_gradient = self.spatial_gradient(prediction)
-        target_gradient = self.spatial_gradient(target)
-        loss = self.mse(pred_gradient, target_gradient)
-        return loss
-
 
 class MirrorMSELoss(nn.Module):
     def __init__(self):

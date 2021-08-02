@@ -45,6 +45,6 @@ vis:
   nocs_pc_vis:
     offset: [0.5,0,0]
 logger:
-  mode: online
+  mode: offline
   name: null
   tags: []

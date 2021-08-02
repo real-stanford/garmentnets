@@ -47,6 +47,6 @@ prediction:
   gradient_direction: ascent
   use_hole_prediction: False
 logger:
-  mode: online
+  mode: offline
   name: null
   tags: []

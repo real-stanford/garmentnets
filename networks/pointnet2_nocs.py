@@ -5,7 +5,6 @@ import torch.nn.functional as F
 import torch.optim as optim
 from torch_geometric.data import Batch
 import torch_scatter
-import kornia
 from torch.cuda.amp import autocast
 import pytorch_lightning as pl
 import wandb
