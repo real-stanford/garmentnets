@@ -28,6 +28,13 @@ The GarmentNets Simulation Dataset contains the raw vertecies, RGBD images and p
 
 Both datasets are stored using [Zarr](https://zarr.readthedocs.io/en/stable/) format.
 
+## 🆕 Sample Datasets
+Upon popular demand, we added a small subset of our datasets, which contains 25 instances of the `Tshirt` category. We are also working on alternative ways to host the complete datasets for reserchers outside of the United States.
+1. [GarmentNets Dataset Sample](https://garmentnets.cs.columbia.edu/dataset/garmentnets_dataset_sample.zarr.tar.gz)
+
+2. [GarmentNets Simulation Dataset Sample](https://garmentnets.cs.columbia.edu/dataset/garmentnets_simulation_dataset_sample.zarr.tar.gz)
+
+
 ## Pretrained Models
 [GarmentNets Pretrained Models](https://drive.google.com/file/d/1PTuizGDgJA52OfM4BKwL_Eu93chTSRz8/view?usp=sharing)
 
