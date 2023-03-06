@@ -16,9 +16,9 @@ Category-Level Pose Estimation for Garments via Canonical Space Shape Completion
 ```
 
 ## Datasets
-1. [GarmentNets Dataset](https://drive.google.com/file/d/10CU_YQa-6IjKkS6WkYhcL5RAnXS0TqSt/view?usp=sharing) (GarmentNets training and evaluation)
+1. [GarmentNets Dataset](https://garmentnets.cs.columbia.edu/dataset/garmentnets_dataset.zarr.tar) (GarmentNets training and evaluation) [Split in parts](https://garmentnets.cs.columbia.edu/dataset/garmentnets_dataset_parts/)
 
-2. [GarmentNets Simulation Dataset](https://drive.google.com/file/d/1CHJnUUqhNMnpmnUJcDNj4xT61DQiZ2Zj/view?usp=sharing) (raw Blender simluation data to generate the GarmentNets Dataset)
+2. [GarmentNets Simulation Dataset](https://garmentnets.cs.columbia.edu/dataset/garmentnets_simulation_dataset.zarr.tar) (raw Blender simluation data to generate the GarmentNets Dataset) [Split in parts](https://garmentnets.cs.columbia.edu/dataset/garmentnets_simulation_dataset_parts/)
 
 3. [CLOTH3D Dataset](https://chalearnlap.cvc.uab.cat/dataset/38/description/) (cloth meshes in a canonical pose)
 
@@ -28,6 +28,15 @@ The GarmentNets Simulation Dataset contains the raw vertecies, RGBD images and p
 
 Both datasets are stored using [Zarr](https://zarr.readthedocs.io/en/stable/) format.
 
+🆕 If your internet connection is not stable, please try to download part files for our datasets using command
+```
+$ wget --recursive --no-parent --no-host-directories --relative --reject="index.html*" https://garmentnets.cs.columbia.edu/dataset/garmentnets_dataset_parts/
+```
+and then combine the part files into a complete tar file for extraction:
+```
+$ cat garmentnets_dataset.zarr.tar.part* > garmentnets_dataset.zarr.tar
+```
+
 ## 🆕 Sample Datasets
 Upon popular demand, we added a small subset of our datasets, which contains 25 instances of the `Tshirt` category. We are also working on alternative ways to host the complete datasets for reserchers outside of the United States.
 1. [GarmentNets Dataset Sample](https://garmentnets.cs.columbia.edu/dataset/garmentnets_dataset_sample.zarr.tar.gz)
@@ -36,7 +45,7 @@ Upon popular demand, we added a small subset of our datasets, which contains 25 
 
 
 ## Pretrained Models
-[GarmentNets Pretrained Models](https://drive.google.com/file/d/1PTuizGDgJA52OfM4BKwL_Eu93chTSRz8/view?usp=sharing)
+[GarmentNets Pretrained Models](https://garmentnets.cs.columbia.edu/dataset/garmentnets_checkpoints.tar)
 
 GarmentNets are trained in 2 stages:
 1. PointNet++ canoninicalization network
@@ -60,7 +69,7 @@ pip install potpourri3d==0.0.4
 
 ### Evaluation
 Assuming the project directory is `~/dev/garmentnets`.
-Assuming the [GarmentNets Dataset](https://drive.google.com/file/d/10CU_YQa-6IjKkS6WkYhcL5RAnXS0TqSt/view?usp=sharing) has been extracted to `<PROJECT_ROOT>/data/garmentnets_dataset.zarr` and [GarmentNets Pretrained Models](https://drive.google.com/file/d/1PTuizGDgJA52OfM4BKwL_Eu93chTSRz8/view?usp=sharing) has been extracted to `<PROJECT_ROOT>/data/garmentnets_checkpoints`.
+Assuming the [GarmentNets Dataset](https://garmentnets.cs.columbia.edu/dataset/garmentnets_dataset.zarr.tar) has been extracted to `<PROJECT_ROOT>/data/garmentnets_dataset.zarr` and [GarmentNets Pretrained Models](https://garmentnets.cs.columbia.edu/dataset/garmentnets_checkpoints.tar) has been extracted to `<PROJECT_ROOT>/data/garmentnets_checkpoints`.
 
 Generate prediction Zarr with
 ```
